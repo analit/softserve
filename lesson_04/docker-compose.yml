@@ -1,0 +1,18 @@
+services:
+  frontend:
+    image: node:latest
+    ports:
+      - "3000:3000"
+    command: npm start
+    volumes:
+      - ./react-app-analit:/app
+      - ./react-package.json:/app/package.json
+    working_dir: /app
+    environment:
+      - REACT_APP_BASE_URL=
+  backend:
+    image: node:latest
+    command: npm start
+    volumes:
+      - ./node-app-analit:/app
+    working_dir: /app
